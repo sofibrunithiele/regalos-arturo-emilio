@@ -33,6 +33,8 @@ function storeFromLink(link: string): string {
     if (host.includes('drbrowns')) return "Dr. Brown's"
     if (host.includes('rootstoys')) return 'Roots Toys'
     if (host.includes('estilodebebe')) return 'Estilo de Bebé'
+    if (host.includes('malee')) return 'Maleé'
+    if (host.includes('novasalud')) return 'Nova Salud'
     return host.split('.')[0] ?? 'Tienda'
   } catch {
     return 'Tienda'
@@ -64,14 +66,6 @@ const raw: Omit<Gift, 'store'>[] = [
     budget: 'mayor',
     image:
       'https://www.pichintun.com/cdn/shop/files/ergobaby-cojin-de-lactancia-cojin-de-lactancia-grey-ergobaby-npagrystp-1246807444.jpg?v=1782938169',
-  },
-  {
-    id: 'g04',
-    name: 'Fular',
-    link: 'https://www.lider.cl/ip/coches-y-paseo/fular-portabebe-de-algodon-semielasticado-gris-perla/00040000766874',
-    quantity: 1,
-    budget: 'accesible',
-    image: '/gifts/g04-fular.png',
   },
   {
     id: 'g05',
@@ -107,31 +101,12 @@ const raw: Omit<Gift, 'store'>[] = [
     image: '/gifts/g08-alfombra.png',
   },
   {
-    id: 'g09',
-    name: 'Tina',
-    link: 'https://bebesit.cl/collections/baneras-bebe/products/banera-plegable-bebe-con-hamaca-jelly-gris',
-    quantity: 1,
-    budget: 'medio',
-    image:
-      'https://bebesit.cl/cdn/shop/files/bb00001614hagr-b95ba69a-32a7-464a-81b6-91b4cd6c766c-c5e95817-7549-4750-9b1e-6f4900b763fb_1200x1200.jpg?v=1764787695',
-  },
-  {
     id: 'g10',
     name: 'Monitor',
     link: 'https://www.falabella.com/falabella-cl/product/17194254/Monitor-Digital-Portatil-A240C-Bebesit/17194254',
     quantity: 1,
     budget: 'mayor',
     image: '/gifts/g10-monitor.png',
-  },
-  {
-    id: 'g11',
-    name: 'Bolsas para leche materna',
-    link: 'https://www.mercadolibre.cl/pack-60-bolsas-para-leche-materna-almacenar-250ml/p/MLC2041993288',
-    quantity: 1,
-    budget: 'accesible',
-    unlimited: true,
-    notes: 'Las que quieran',
-    image: '/gifts/g11-bolsas-leche.png',
   },
   {
     id: 'g12',
@@ -183,14 +158,6 @@ const raw: Omit<Gift, 'store'>[] = [
     image: '/gifts/g17-luz-nocturna.png',
   },
   {
-    id: 'g18',
-    name: 'Láminas de aprendizaje',
-    link: 'https://cl.shein.com/20pcs-1set-40-High-Contrast-Black-And-White-Visual-Stimulation-Cards-Newborn-Vision-Training-And-Tracking-Flashcards-Baby-Books-0-3-Months-3-6-Months-6-12-Months-Infant-Development-Toys-Baby-Supplies-Children-Toys-Toddler-Toys-Baby-Books-Alternative-Gifts-Toddler-Learning-Activities-p-428016979.html',
-    quantity: 1,
-    budget: 'accesible',
-    image: '/gifts/g18-laminas.png',
-  },
-  {
     id: 'g19',
     name: 'Mamaderas',
     link: 'https://drbrowns.cl/producto/mamaderas/mamaderas-boca-ancha/set-recien-nacido-boca-ancha-options-dr-browns/',
@@ -215,16 +182,132 @@ const raw: Omit<Gift, 'store'>[] = [
     image: 'https://infanti.cl/cdn/shop/files/014711NS13A.jpg?v=1781222238',
   },
   {
-    id: 'g22',
-    name: 'Lavador y esterilizador de mamaderas',
-    link: 'https://www.falabella.com/falabella-cl/product/155886137/esterilizador-electrico-a-vapor-para-mamaderas-y-accesorios-bebesit/155886138',
+    id: 'g23',
+    name: 'Frascos almacenamiento leche materna',
+    link: 'https://www.falabella.com/falabella-cl/product/80727657/almacenamiento-leche-set-x4-momcozy/80727657',
+    quantity: 1,
+    budget: 'accesible',
+    image: 'https://media.falabella.com/falabellaCL/80727657_1/public',
+  },
+  {
+    id: 'g24',
+    name: 'Adaptadores de extractor',
+    link: 'https://www.mercadolibre.cl/inserto-de-brida-1315171921mm-y-2-valvula-de-pico-pato/p/MLC2082973555',
+    quantity: 1,
+    budget: 'accesible',
+    image: '/gifts/g24-adaptadores.png',
+  },
+  {
+    id: 'g25',
+    name: 'Mochila de porteo',
+    link: 'https://www.malee.cl/producto/evolutiva-algodon-poliester-gris-perla-conejitos-copia-25',
     quantity: 1,
     budget: 'mayor',
-    image: '/gifts/g22-esterilizador.png',
+    image: 'https://www.malee.cl/uploads/1795103552194-3e5be9751146.webp',
+  },
+  {
+    id: 'g26',
+    name: 'Wipes aptos para recién nacido',
+    link: 'https://bebesit.cl/products/pack-12-toallitas-humedas-bewater-60-unidades-c-u-720-un',
+    quantity: 1,
+    budget: 'accesible',
+    unlimited: true,
+    notes: 'Las que quieran',
+    image:
+      'https://bebesit.cl/cdn/shop/files/caja-bw-1-8ae603c4-8517-4646-bfbe-ad2478216a7b_1200x1200.png?v=1789408507',
+  },
+  {
+    id: 'g27',
+    name: 'Gel de baño',
+    link: 'https://www.mercadolibre.cl/mustela-gel-de-bano-500-ml-botella/p/MLC20666207',
+    quantity: 1,
+    budget: 'accesible',
+    image: '/gifts/g27-gel-bano.png',
+  },
+  {
+    id: 'g28',
+    name: 'Paños de muselina',
+    link: 'https://cl.shein.com/7pcs-Soft-Comfortable-100-Cotton-Baby-Bibs-Solid-Color-Floral-Cartoon-Animal-Printed-Baby-Cotton-Gauze-Burp-Cloths-Feeding-Handkerchiefs-Essential-For-Newborns-p-430839199.html',
+    quantity: 1,
+    budget: 'accesible',
+    image: '/gifts/g28-panos-muselina.png',
+  },
+  {
+    id: 'g29',
+    name: 'Crema para coseduras',
+    link: 'https://www.mercadolibre.cl/mustela-crema-preventiva-de-panal-vitaminada-123-bebe-100ml/p/MLC18397534',
+    quantity: 1,
+    budget: 'accesible',
+    image: '/gifts/g29-crema-coseduras.png',
+  },
+  {
+    id: 'g30',
+    name: 'Crema corporal recién nacido',
+    link: 'https://www.novasalud.cl/eucerin-piel-sensible-400ml-crema-corporal',
+    quantity: 1,
+    budget: 'medio',
+    image:
+      'https://www.novasalud.cl/media/catalog/product/cache/3844d86fa8143adcf940177c5498f63c/4/0/4003072_13.jpg',
+  },
+  {
+    id: 'g31',
+    name: 'Body recién nacido',
+    link: 'https://cl.shein.com/SHEIN-3pcs-Set-Newborn-Baby-Girls-Boys-Blue-And-White-Stripe-Crossed-Collar-Long-Sleeve-Bodysuit-Outfit-Set-Autumn-Family-Matching-Gender-Neutral-p-134456404.html',
+    quantity: 1,
+    budget: 'accesible',
+    image: '/gifts/g31-body.png',
+  },
+  {
+    id: 'g32',
+    name: 'Pijama',
+    link: 'https://cl.shein.com/Loomiva-Newborn-Baby-Girl-Cartoon-Bear-Pattern-Knitted-Soft-Crew-Neck-Long-Sleeve-Jumpsuit-Brown-Clothes-Natural-New-Born-Swaddle-Boy-Fall-Zipper-Suit-p-372581066.html',
+    quantity: 1,
+    budget: 'accesible',
+    image: '/gifts/g32-pijama.png',
+  },
+  {
+    id: 'g33',
+    name: 'Ajuar gorro',
+    link: 'https://www.opaline.cl/pack-2-gorro-ajuar-celeste-bebe-nino/p',
+    quantity: 1,
+    budget: 'medio',
+    image: 'https://opalinecl.vtexassets.com/arquivos/ids/382003.jpg',
+  },
+  {
+    id: 'g34',
+    name: 'Ajuar calcetines',
+    link: 'https://www.opaline.cl/set-de-regalo-pack-5-calcetin-celeste-bebe-nino/p',
+    quantity: 1,
+    budget: 'medio',
+    image: 'https://opalinecl.vtexassets.com/arquivos/ids/383225.jpg',
+  },
+  {
+    id: 'g35',
+    name: 'Ajuar bodys',
+    link: 'https://www.opaline.cl/pack-2-body-celeste-rib--bebe-nino/p?skuId=22911',
+    quantity: 1,
+    budget: 'medio',
+    image: 'https://opalinecl.vtexassets.com/arquivos/ids/381677.jpg',
+  },
+  {
+    id: 'g36',
+    name: 'Ajuar ropita',
+    link: 'https://www.opaline.cl/conjunto-clinica-celeste-bebe-nino/p?skuId=23447',
+    quantity: 1,
+    budget: 'medio',
+    image: 'https://opalinecl.vtexassets.com/arquivos/ids/383323.jpg',
   },
 ]
+
+function withBase(path: string | null | undefined): string | null | undefined {
+  if (!path) return path
+  if (/^https?:\/\//i.test(path)) return path
+  const base = import.meta.env.BASE_URL
+  return `${base}${path.replace(/^\//, '')}`
+}
 
 export const gifts: Gift[] = raw.map((g) => ({
   ...g,
   store: storeFromLink(g.link),
+  image: withBase(g.image),
 }))

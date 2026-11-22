@@ -231,6 +231,15 @@ a {
   font-size: 0.98rem;
 }
 
+.gifts__hint--warn {
+  color: #7a4a1e;
+  background: rgba(214, 168, 92, 0.16);
+  border: 1px solid rgba(214, 168, 92, 0.35);
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  max-width: 36rem;
+}
+
 .gifts__loading,
 .gifts__empty {
   text-align: center;

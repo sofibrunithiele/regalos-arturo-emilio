@@ -5,10 +5,10 @@ import { Sailboat } from './components/Sailboat'
 import { gifts, type Gift } from './data/gifts'
 import { shipping } from './data/shipping'
 import {
+  detectCloud,
   listReservations,
   releaseReservation,
   reserveGift,
-  usingCloud,
   type Reservation,
 } from './lib/reservations'
 import './App.css'
@@ -23,8 +23,10 @@ export default function App() {
   const [selected, setSelected] = useState<Gift | null>(null)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [loadError, setLoadError] = useState<string | null>(null)
   const [toast, setToast] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
+  const [liveList, setLiveList] = useState(false)
   const admin = isAdminMode()
 
   const refresh = useCallback(async () => {
@@ -33,8 +35,14 @@ export default function App() {
   }, [])
 
   useEffect(() => {
+    detectCloud()
+      .then(setLiveList)
+      .catch(() => setLiveList(false))
+
     refresh()
-      .catch(() => setError('No pudimos cargar las reservas. Recarga la página.'))
+      .catch(() =>
+        setLoadError('No pudimos cargar las reservas. Recarga la página.'),
+      )
       .finally(() => setLoading(false))
   }, [refresh])
 
@@ -121,9 +129,15 @@ export default function App() {
         <div className="hero__meta">
           <span>{loading ? '…' : `${availableCount} disponibles`}</span>
           <span className="dot" aria-hidden="true" />
-          <span>{usingCloud ? 'Lista en vivo' : 'Vista local'}</span>
+          <span>{liveList ? 'Lista en vivo' : 'Vista local'}</span>
         </div>
       </header>
+
+      {loadError ? (
+        <p className="gifts__loading" role="alert">
+          {loadError}
+        </p>
+      ) : null}
 
       <section className="shipping" aria-labelledby="shipping-title">
         <div className="shipping__inner">
@@ -160,6 +174,13 @@ export default function App() {
             hace en la tienda del link (Chile o el extranjero). Las etiquetas
             Accesible, Medio y Mayor son solo una guía de presupuesto.
           </p>
+          {!loading && !liveList ? (
+            <p className="gifts__hint gifts__hint--warn" role="status">
+              Ahora mismo las reservas solo quedan en este navegador. Para que
+              toda la familia vea qué ya se compró, falta activar la lista en
+              vivo.
+            </p>
+          ) : null}
         </div>
 
         {loading ? (
