@@ -271,7 +271,7 @@ const raw: Omit<Gift, 'store'>[] = [
     link: 'https://www.opaline.cl/pack-2-gorro-ajuar-celeste-bebe-nino/p',
     quantity: 1,
     budget: 'medio',
-    image: 'https://opalinecl.vtexassets.com/arquivos/ids/382003.jpg',
+    image: '/gifts/g33-ajuar-gorro.png',
   },
   {
     id: 'g34',
@@ -279,7 +279,7 @@ const raw: Omit<Gift, 'store'>[] = [
     link: 'https://www.opaline.cl/set-de-regalo-pack-5-calcetin-celeste-bebe-nino/p',
     quantity: 1,
     budget: 'medio',
-    image: 'https://opalinecl.vtexassets.com/arquivos/ids/383225.jpg',
+    image: '/gifts/g34-ajuar-calcetines.png',
   },
   {
     id: 'g35',
@@ -287,7 +287,7 @@ const raw: Omit<Gift, 'store'>[] = [
     link: 'https://www.opaline.cl/pack-2-body-celeste-rib--bebe-nino/p?skuId=22911',
     quantity: 1,
     budget: 'medio',
-    image: 'https://opalinecl.vtexassets.com/arquivos/ids/381677.jpg',
+    image: '/gifts/g35-ajuar-bodys.png',
   },
   {
     id: 'g36',
@@ -295,7 +295,7 @@ const raw: Omit<Gift, 'store'>[] = [
     link: 'https://www.opaline.cl/conjunto-clinica-celeste-bebe-nino/p?skuId=23447',
     quantity: 1,
     budget: 'medio',
-    image: 'https://opalinecl.vtexassets.com/arquivos/ids/383323.jpg',
+    image: '/gifts/g36-ajuar-ropita.png',
   },
 ]
 
